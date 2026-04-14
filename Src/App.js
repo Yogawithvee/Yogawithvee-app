@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-// ── Paste your Replit server URL here after Step 4 ──
 const API_BASE = "https://d542ea31-6771-4dde-b6fb-561a441f6278-00-36r4x3ckrn51h.picard.replit.dev";
 const SYMPTOMS = [
 { id: "fatigue", label: "Fatigue", icon: " ", desc: "Constant tiredness, low en
