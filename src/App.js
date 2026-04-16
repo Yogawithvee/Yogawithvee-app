@@ -113,7 +113,7 @@ export default function App() {
 
       {screen === "select" && (
         <div style={style.screen}>
-          <button style={style.back} onClick={() => setScreen("home")}>â Back</button>
+          <button style={style.back} onClick={() => setScreen("home")}>Back</button>
           <h2 style={style.h2}>What is your body telling you?</h2>
           <p style={{ fontSize: "13px", color: "#7C7267", marginBottom: "24px" }}>Select up to 4 symptoms.</p>
           <div style={style.grid}>
@@ -132,7 +132,7 @@ export default function App() {
 
       {screen === "loading" && (
         <div style={style.home}>
-          <h2 style={{ fontSize: "24px", marginBottom: "12px" }}>Creating your practiceâ¦</h2>
+          <h2 style={{ fontSize: "24px", marginBottom: "12px" }}>Creating your practice¦</h2>
           <p style={style.p}>Shaping a 5-minute flow for you.</p>
         </div>
       )}
@@ -140,7 +140,7 @@ export default function App() {
       {screen === "result" && plan && (
         <div>
           <div style={style.hero}>
-            <div style={{ fontSize: "10px", letterSpacing: "3px", marginBottom: "10px", color: "#B5C4A8" }}>{plan.type} Â· 5 MIN</div>
+            <div style={{ fontSize: "10px", letterSpacing: "3px", marginBottom: "10px", color: "#B5C4A8" }}>{plan.type} - 5 MIN</div>
             <h1 style={style.h1}>{plan.title}</h1>
             <p style={{ color: "#C4BDB5", fontStyle: "italic", fontSize: "13px" }}>{plan.subtitle}</p>
           </div>
@@ -156,7 +156,7 @@ export default function App() {
                   <div style={style.stepTxt}>{s.instruction}</div>
                   <div>
                     {active && !done && <span style={{ marginRight: "10px", fontSize: "20px" }}>{fmt(activeTimer.remaining)}</span>}
-                    {done && <span style={{ marginRight: "10px", color: "#C17F5A" }}>â Done</span>}
+                    {done && <span style={{ marginRight: "10px", color: "#C17F5A" }}>Done</span>}
                     <button style={style.timerBtn} onClick={() => {
                       if (done) setActiveTimer(null);
                       else if (active) { clearInterval(intervalRef.current); setActiveTimer(null); }
