@@ -29,6 +29,18 @@ export default function App() {
   const generatePlan = async () => {
     setScreen("loading");
     const labels = selected.map((id) => SYMPTOMS.find((s) => s.id === id).label);
+    const fallback = {
+      title: "Gentle Practice",
+      subtitle: "A calming flow for this moment.",
+      type: "Movement + Breath",
+      science_note: "Yoga supports nervous system regulation during hormonal shifts.",
+      steps: [
+        { name: "Legs Up The Wall", duration: "2 minutes", seconds: 120, instruction: "Lie near a wall with legs elevated. Close your eyes and breathe naturally." },
+        { name: "Extended Exhale", duration: "2 minutes", seconds: 120, instruction: "Inhale for 4, exhale for 8. Repeat 10 times." },
+        { name: "Body Scan", duration: "1 minute", seconds: 60, instruction: "Starting at your feet, soften each body part upward." }
+      ],
+      affirmation: "Your body is asking for something different, and you are listening."
+    };
     try {
       const res = await fetch(API_BASE + "/api/generate-plan", {
         method: "POST",
@@ -36,21 +48,14 @@ export default function App() {
         body: JSON.stringify({ symptoms: labels })
       });
       const data = await res.json();
-      setPlan(data.plan);
+      if (data && data.plan && data.plan.steps) {
+        setPlan(data.plan);
+      } else {
+        setPlan(fallback);
+      }
       setScreen("result");
     } catch (e) {
-      setPlan({
-        title: "Gentle Practice",
-        subtitle: "A calming flow for this moment.",
-        type: "Movement + Breath",
-        science_note: "Yoga supports nervous system regulation during hormonal shifts.",
-        steps: [
-          { name: "Legs Up The Wall", duration: "2 minutes", seconds: 120, instruction: "Lie near a wall with legs elevated. Close your eyes and breathe naturally." },
-          { name: "Extended Exhale", duration: "2 minutes", seconds: 120, instruction: "Inhale for 4, exhale for 8. Repeat 10 times." },
-          { name: "Body Scan", duration: "1 minute", seconds: 60, instruction: "Starting at your feet, soften each body part upward." }
-        ],
-        affirmation: "Your body is asking for something different, and you are listening."
-      });
+      setPlan(fallback);
       setScreen("result");
     }
   };
