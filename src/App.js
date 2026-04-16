@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 const API_BASE = "https://d542ea31-6771-4dde-b6fb-561a441f6278-00-36r4x3ckrn51h.picard.replit.dev";
 const SYMPTOMS = [
-{ id: "fatigue", label: "Fatigue", icon: " ", desc: "Constant tiredness, low en
-{ id: "anxiety", label: "Anxiety", icon: " ", desc: "Racing thoughts, overwhel
-{ id: "poor_sleep", label: "Poor Sleep", icon: " ", desc: "Waking at night, restless
-{ id: "brain_fog", label: "Brain Fog", icon: " ", desc: "Difficulty concentrating"
-{ id: "hot_flushes", label: "Hot Flushes", icon: " ", desc: "Sudden heat, sweating" },
-{ id: "joint_pain", label: "Joint Stiffness", icon: " ", desc: "Aches, reduced mobility"
-{ id: "mood_swings", label: "Mood Shifts", icon: " ", desc: "Emotional waves, irritabi
-{ id: "stress", label: "High Stress", icon: " ", desc: "Nervous system overwhelm"
+  { id: "fatigue", label: "Fatigue", icon: "*", desc: "Constant tiredness, low energy" },
+  { id: "anxiety", label: "Anxiety", icon: "*", desc: "Racing thoughts, overwhelm" },
+  { id: "poor_sleep", label: "Poor Sleep", icon: "*", desc: "Waking at night, restless" },
+  { id: "brain_fog", label: "Brain Fog", icon: "*", desc: "Difficulty concentrating" },
+  { id: "hot_flushes", label: "Hot Flushes", icon: "*", desc: "Sudden heat, sweating" },
+  { id: "joint_pain", label: "Joint Stiffness", icon: "*", desc: "Aches, reduced mobility" },
+  { id: "mood_swings", label: "Mood Shifts", icon: "*", desc: "Emotional waves, irritability" },
+  { id: "stress", label: "High Stress", icon: "*", desc: "Nervous system overwhelm" },
 ];
 const FALLBACK_PLANS = {
 fatigue: {
